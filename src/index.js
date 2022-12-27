@@ -47,7 +47,7 @@ async function handleSubmit(e) {
   loadMoreButtonEll.classList.remove('load-more');
 
   page = 1;
-  photo = e.currentTarget.elements.searchQuery.value;
+  photo = e.target.elements.searchQuery.value;
   galleryEll.innerHTML = '';
   await getImg(photo, page).then(response => {
     if (photo === ' ' || photo === '') {
