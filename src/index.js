@@ -37,7 +37,7 @@ function renderpicture(picture) {
 
 function getImg(photo, page) {
   return axios.get(
-    `https://pixabay.com/api/?key=32376181-04be028924f4b971209ce7acf=${photo}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${per_page}`
+    `https://pixabay.com/api/?key=32376181-04be028924f4b971209ce7acf&q=${photo}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${per_page}`
   );
 }
 
@@ -47,7 +47,7 @@ async function handleSubmit(e) {
   loadMoreButtonEll.classList.remove('load-more');
 
   page = 1;
-  photo = e.target.elements.searchQuery.value;
+  photo = e.currentTarget.elements.searchQuery.value;
   galleryEll.innerHTML = '';
   await getImg(photo, page).then(response => {
     if (photo === ' ' || photo === '') {
